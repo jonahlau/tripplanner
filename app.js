@@ -8,18 +8,32 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+var swig = require('swig');
+// require('./filter')(swig);
+
+var sass = require('node-sass');
+
 var app = express();
+app.engine('html', swig.renderFile);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'html');
 
 app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
+app.use(
+  sass.middleware({
+    src:__dirname + '/assets',
+    dest:__dirname + '/public',
+    debug: true
+  })
+);
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/bower_components', express.static(__dirname + '/bower_components'));
 
 app.use('/', routes);
 app.use('/users', users);
@@ -36,6 +50,7 @@ app.use(function(req, res, next) {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
+  swig.setDefaults({cache: false});
     app.use(function(err, req, res, next) {
         res.status(err.status || 500);
         res.render('error', {

@@ -1,8 +1,21 @@
-body {
-  padding: 50px;
+/*body {
+  margin-top: 200px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}*/
+
+.map-column {
+  height: 500px;
+}
+
+/*#map-canvas {
+  height: 500px;
+  width: 500px;
+}*/
+
+#map {
+  height: 1000px;
 }

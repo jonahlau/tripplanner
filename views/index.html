@@ -1,0 +1,115 @@
+{% extends "layout.html" %} {% block content %}
+<br>
+<br>
+<br>
+
+<div class="row">
+    <div class="col-lg-4">
+        <!-- First row -->
+        <div class="btn-group">
+            <h3></h3>
+            <button type="button" class="btn btn-default">Day 1</button>
+            <button type="button" class="btn btn-default">Day 2</button>
+            <button type="button" class="btn btn-default">Day 3</button>
+            <button type="button" class="btn btn-default">+ Add Day</button>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="dropdown">
+            <h3>Hotels</h3>
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                        Dropdown
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a>
+                        </li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a>
+                        </li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a>
+                        </li>
+                    </ul>
+                    <button type="button" class="btn btn-primary">Add</button>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="dropdown">
+            <h3>Things to do</h3>
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                        Dropdown
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a>
+                        </li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a>
+                        </li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a>
+                        </li>
+                    </ul>
+                    <button type="button" class="btn btn-primary">Add</button>
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <div class="dropdown">
+            <h3>Restaurants</h3>
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                        Dropdown
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a>
+                        </li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a>
+                        </li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a>
+                        </li>
+                    </ul>
+                    <button type="button" class="btn btn-primary">Add</button>
+        </div>
+    </div>
+</div>
+<!-- First row ends -->
+<div class="row" id="map">
+    <!-- Second row begins -->
+    <div class="col-lg-4">
+      <h3>Plan for Day 1</h3>
+      <ul>
+        <li>Hotel</li>
+        <li>Things to Do</li>
+        <li>Restaurants</li>
+      </ul>
+    </div>
+    <div class="col-lg-8" id="map-canvas">
+      adfadfadsfadsf
+    </div>
+</div>
+
+<!-- Second row ends -->
+<script>
+{ % autoescape false %}
+var all_hotels = {
+    {hotels | json}
+};
+var all_restaurants = {
+  {restaurants | json}
+};
+var all_things_to_do = {
+  {things_to_do | json}
+};
+{ % endautoescape %}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSHso5Dp1I98iDm6crpS9Qk4i8t73qVaI&sensor=true"></script>
+<script type="text/javascript">
+  function initialize() {
+    var mapOptions = {
+      center: new google.maps.LatLng(40.705786,-74.007672),
+      zoom: 15
+    };
+    var map = new google.maps.Map(document.getElementById("map-canvas"),
+        mapOptions);
+  }
+  google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+{% endblock %}
