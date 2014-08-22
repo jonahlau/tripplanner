@@ -3,7 +3,7 @@ mongoose.connect('mongodb://localhost/tripplanner');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console,'mongodb connection error:'));
 
-var Place, Hotel, ThingToDo, Restaurant;
+var Place, Hotel, ThingsToDo, Restaurant;
 var Schema = mongoose.Schema;
 
 var placeSchema = new Schema({

@@ -16,6 +16,12 @@ a {
   width: 500px;
 }*/
 
-#map {
-  height: 1000px;
+#map-canvas {
+  margin-top: 20px;
+  height: 700px;
+  width: 750px;
+}
+
+.inner-li {
+  list-style: none;
 }
