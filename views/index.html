@@ -6,12 +6,10 @@
 <div class="row">
     <div class="col-lg-4">
         <!-- First row -->
-        <div class="btn-group">
+        <div class="btn-group" id="add-btn-group">
             <h3></h3>
-            <button type="button" class="btn btn-default">Day 1</button>
-            <button type="button" class="btn btn-default">Day 2</button>
-            <button type="button" class="btn btn-default">Day 3</button>
-            <button type="button" class="btn btn-default">+ Add Day</button>
+            <button type="button" class="btn btn-default btn-days" id="day1">Day 1</button>
+            <button type="button" class="btn btn-default btn" id="add-day">+ Add Day</button>
         </div>
     </div>
     <div class="col-lg-3">
@@ -40,7 +38,7 @@
 <div class="row" id="map">
     <!-- Second row begins -->
     <div class="col-lg-4">
-      <h3>Plan for Day 1</h3>
+      <h3>Plan for <span id="day"></span></h3>
       <ul>
         <li><h4>Hotel</h4><ul id="hotel-ul"></ul></li>
         <li><h4>Things to Do</h4><ul id="things-ul"></ul></li>
