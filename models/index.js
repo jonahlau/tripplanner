@@ -34,6 +34,10 @@ var restaurantSchema = new Schema({
   price: Number
 });
 
+var dayPlan = new Schema({
+
+})
+
 Place = mongoose.model('Place', placeSchema);
 Hotel = mongoose.model('Hotel', hotelSchema);
 ThingsToDo = mongoose.model('ThingsToDo', thingSchema);
